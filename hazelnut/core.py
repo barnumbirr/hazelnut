@@ -30,7 +30,6 @@ class MemInfo(object):
 		return d
 
 	def search(self, input):
-		fileinfo = {}
 		with open(self.get_path(), 'r') as f:
 			match = [s for s in f if input in s]
 			# will have to figure out a way to make this case insensitive.
