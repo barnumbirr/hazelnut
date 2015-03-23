@@ -29,9 +29,9 @@ class MemInfo(object):
 			d = dict(x.strip().split(None, 1) for x in f)
 		return d
 
-	def search(self, input):
+	def search(self, inp):
 		with open(self.get_path(), 'r') as f:
-			match = [s for s in f if input in s]
+			match = [s for s in f if inp in s]
 			# will have to figure out a way to make this case insensitive.
 			# mem.search('Swap') and mem.search('swap') should both match.
 			return match
