@@ -12,7 +12,7 @@ setup(
 	author_email = 'me@martinsimon.me',
 	license = 'Apache v2.0 License',
 	packages = ['hazelnut'],
-	description = 'A pythonic library for parsing /proc/meminfo',
+	description = 'A pythonic library to parse /proc/meminfo',
 	long_description = file('README.md','r').read(),
-	keywords = [''],
+	keywords = ['memory', 'RAM', 'system information', 'meminfo', '/proc'],
 )
