@@ -5,7 +5,7 @@ from distutils.core import setup
 
 setup(
 	name = 'hazelnut',
-	version = '0.1a',
+	version = '0.1',
 	url = 'https://github.com/c0ding/hazelnut',
 	download_url = 'https://github.com/c0ding/hazelnut/archive/master.zip',
 	author = 'Martin Simon',
