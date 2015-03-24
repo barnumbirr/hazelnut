@@ -17,7 +17,7 @@ class MemInfo(object):
 	def __str__(self):
 		with open(self.get_path(), 'r') as f:
 			lines = [line.strip() for line in f]
-			return '\n'.join(lines)
+		return '\n'.join(lines)
 
 	def __repr__(self):
 		return self.__str__()
