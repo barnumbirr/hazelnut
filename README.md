@@ -119,7 +119,7 @@ DirectMap2M:     8187904 kB
 }
 ```
 
-- Search:
+- Search (is case insensitive):
 
 ```
 >>> mem.search('Swap')

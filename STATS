@@ -1,32 +1,32 @@
 
   Analyzing: https://github.com/c0ding/hazelnut/blob/master/hazelnut/core.py
 
-              Total Lines: 37
+                Total Lines: 38
 
-               Code Lines: 26 (70.2702%)
-              Blank Lines: 8 (21.6216%)
+                 Code Lines: 28 (73.6842%)
+                Blank Lines: 9 (23.6842%)
 
-            Comment Lines: 3 (8.10810%)
-         Doc String Lines: 0 (0.0%)
-          Inline Comments: 1
-              Doc Strings: 0
-           Total Comments: 4
+              Comment Lines: 1 (2.63157%)
+           Doc String Lines: 0 (0.0%)
+            Inline Comments: 1
+                Doc Strings: 0
+             Total Comments: 2
 
-        Longest Code Line: 47
-       Shortest Code Line: 8 [return d]
+          Longest Code Line: 47
+         Shortest Code Line: 8 [return d]
 
-     Longest Comment Line: 65
-    Shortest Comment Line: 23 [# -*- coding: utf-8 ...]
+       Longest Comment Line: 23
+      Shortest Comment Line: 23 [# -*- coding: utf-8 ...]
 
-                  Imports: 0
-                Functions: 6
-                  Classes: 1
-            If Statements: 0
-           Try Statements: 0
-        Except Statements: 0
-         Print Statements: 0
-              Assignments: 10
-                Variables: 9
+                    Imports: 1
+                  Functions: 6
+                    Classes: 1
+              If Statements: 0
+             Try Statements: 0
+          Except Statements: 0
+           Print Statements: 0
+                Assignments: 11
+                  Variables: 10
 
 
   Done analyzing: https://github.com/c0ding/hazelnut/blob/master/hazelnut/core.py
@@ -36,32 +36,32 @@
 
   Analyzing: https://github.com/c0ding/hazelnut/blob/master/hazelnut/__init__.py
 
-              Total Lines: 10
+                Total Lines: 10
 
-               Code Lines: 7 (70.0%)
-              Blank Lines: 2 (20.0%)
+                 Code Lines: 7 (70.0%)
+                Blank Lines: 2 (20.0%)
 
-            Comment Lines: 1 (10.0%)
-         Doc String Lines: 0 (0.0%)
-          Inline Comments: 1
-              Doc Strings: 0
-           Total Comments: 2
+              Comment Lines: 1 (10.0%)
+           Doc String Lines: 0 (0.0%)
+            Inline Comments: 1
+                Doc Strings: 0
+             Total Comments: 2
 
-        Longest Code Line: 47
-       Shortest Code Line: 20 [__version__ = '0.1a']
+          Longest Code Line: 47
+         Shortest Code Line: 19 [__version__ = '0.2']
 
-     Longest Comment Line: 23
-    Shortest Comment Line: 23 [# -*- coding: utf-8 ...]
+       Longest Comment Line: 23
+      Shortest Comment Line: 23 [# -*- coding: utf-8 ...]
 
-                  Imports: 1
-                Functions: 0
-                  Classes: 0
-            If Statements: 0
-           Try Statements: 0
-        Except Statements: 0
-         Print Statements: 0
-              Assignments: 5
-                Variables: 5
+                    Imports: 1
+                  Functions: 0
+                    Classes: 0
+              If Statements: 0
+             Try Statements: 0
+          Except Statements: 0
+           Print Statements: 0
+                Assignments: 5
+                  Variables: 5
 
 
   Done analyzing: https://github.com/c0ding/hazelnut/blob/master/hazelnut/__init__.py

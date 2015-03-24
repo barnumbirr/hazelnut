@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import re
+
 __title__ = 'hazelnut'
-__version__ = '0.1'
+__version__ = '0.2'
 __author__ = 'Martin Simon <me@martinsimon.me>'
 __repo__ = 'https://github.com/c0ding/hazelnut'
 __license__ = 'Apache v2.0 License'
@@ -29,9 +31,8 @@ class MemInfo(object):
 			d = dict(x.strip().split(None, 1) for x in f)
 		return d
 
-	def search(self, inp):
+	def search(self, user_inp):
 		with open(self.get_path(), 'r') as f:
-			match = [s for s in f if inp in s]
-			# will have to figure out a way to make this case insensitive.
-			# mem.search('Swap') and mem.search('swap') should both match.
-			return match
+			matcher = re.compile(user_inp, re.IGNORECASE)
+			match = filter(matcher.match, f) 
+		return match
