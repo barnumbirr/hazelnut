@@ -126,8 +126,6 @@ DirectMap2M:     8187904 kB
 ['SwapCached:            0 kB\n', 'SwapTotal:      16776188 kB\n', 'SwapFree:       16776188 kB\n']
 ```
 
-
-
 ## License:
 
 ```
