@@ -7,4 +7,4 @@ __author__ = 'Martin Simon <me@martinsimon.me>'
 __repo__ = 'https://github.com/c0ding/hazelnut'
 __license__ = 'Apache v2.0 License'
 
-from core import MemInfo
+from .core import MemInfo
