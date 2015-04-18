@@ -3,12 +3,6 @@
 
 import re
 
-__title__ = 'hazelnut'
-__version__ = '0.2'
-__author__ = 'Martin Simon <me@martinsimon.me>'
-__repo__ = 'https://github.com/c0ding/hazelnut'
-__license__ = 'Apache v2.0 License'
-
 
 class MemInfo(object):
     def __init__(self, path='/proc/meminfo'):
