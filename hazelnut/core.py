@@ -21,6 +21,7 @@ class MemInfo(object):
     def dict(self):
         with self.fileobj() as f:
             d = dict(x.strip().split(None, 1) for x in f)
+            d = {key.strip(':'): item.strip() for key, item in d.items()}
         return d
 
     def search(self, regex):
@@ -28,3 +29,13 @@ class MemInfo(object):
             matcher = re.compile(regex, re.IGNORECASE)
             match = filter(matcher.match, f)
         return match
+
+    # This is a WIP, does not work for the time beeing.
+    def get(self, string):
+        # TODO:
+        # match input string
+        # regex is still wonky, needs fixing
+        with self.fileobj() as f:
+            for line in f:
+                match = re.findall(r'\d+', line)
+            return match
