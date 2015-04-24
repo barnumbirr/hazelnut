@@ -36,6 +36,8 @@ class MemInfo(object):
         # match input string
         # regex is still wonky, needs fixing
         with self.fileobj() as f:
-            for line in f:
-                match = re.findall(r'\d+', line)
-            return match
+            lines = [line.strip() for line in f]
+            for item in lines:
+                if item.startswith(string):
+                    match = re.findall(r'([0-9]+)\s', item)
+            return int(match[0])
