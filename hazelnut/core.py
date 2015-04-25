@@ -30,11 +30,7 @@ class MemInfo(object):
             match = filter(matcher.match, f)
         return match
 
-    # This is a WIP, does not work for the time beeing.
     def get(self, string):
-        # TODO:
-        # match input string
-        # regex is still wonky, needs fixing
         with self.fileobj() as f:
             lines = [line.strip() for line in f]
             for item in lines:
