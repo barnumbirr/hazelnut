@@ -4,6 +4,7 @@
 import re
 
 class MemInfo(object):
+
     def __init__(self, path='/proc/meminfo'):
         self.path = path
 
@@ -36,4 +37,4 @@ class MemInfo(object):
             for item in lines:
                 if item.startswith(string):
                     match = re.findall(r'([0-9]+)\s', item)
-            return int(match[0])
+                    return int(match[0])

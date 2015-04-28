@@ -14,7 +14,7 @@ From source use
 or install from PyPi
 
 		$ pip install hazelnut
-		
+
 ## Documentation:
 
 - Basic use:
@@ -73,49 +73,49 @@ DirectMap2M:     8187904 kB
 ```
 >>> mem.dict()
 {
-	"Inactive:": "671312 kB",
-	"Mlocked:": "0 kB",
-	"HardwareCorrupted:": "0 kB",
-	"Bounce:": "0 kB",
-	"Active:": "1746544 kB",
-	"Cached:": "1299720 kB",
-	"Unevictable:": "0 kB",
-	"SReclaimable:": "159256 kB",
-	"DirectMap2M:": "8187904 kB",
-	"Buffers:": "484736 kB",
-	"Hugepagesize:": "2048 kB",
-	"MemAvailable:": "7126028 kB",
-	"HugePages_Rsvd:": "0",
-	"Inactive(anon):": "111312 kB",
-	"CommitLimit:": "20822312 kB",
-	"SUnreclaim:": "24940 kB",
-	"Inactive(file):": "560000 kB",
-	"SwapCached:": "0 kB",
-	"HugePages_Total:": "0",
-	"Active(file):": "1223340 kB",
-	"Writeback:": "0 kB",
-	"Dirty:": "0 kB",
-	"PageTables:": "5700 kB",
-	"Shmem:": "1120 kB",
-	"MemFree:": "5432004 kB",
-	"Mapped:": "96256 kB",
-	"WritebackTmp:": "0 kB",
-	"Slab:": "184196 kB",
-	"HugePages_Free:": "0",
-	"AnonPages:": "633396 kB",
-	"HugePages_Surp:": "0",
-	"DirectMap4k:": "97980 kB",
-	"Committed_AS:": "1774860 kB",
-	"VmallocUsed:": "362896 kB",
-	"MemTotal:": "8092252 kB",
-	"SwapTotal:": "16776188 kB",
-	"NFS_Unstable:": "0 kB",
-	"VmallocTotal:": "34359738367 kB",
-	"Active(anon):": "523204 kB",
-	"KernelStack:": "3856 kB",
-	"SwapFree:": "16776188 kB",
-	"AnonHugePages:": "0 kB",
-	"VmallocChunk:": "34359343324 kB"
+	"Inactive": "671312 kB",
+	"Mlocked": "0 kB",
+	"HardwareCorrupted": "0 kB",
+	"Bounce": "0 kB",
+	"Active": "1746544 kB",
+	"Cached": "1299720 kB",
+	"Unevictable": "0 kB",
+	"SReclaimable": "159256 kB",
+	"DirectMap2M": "8187904 kB",
+	"Buffers": "484736 kB",
+	"Hugepagesize": "2048 kB",
+	"MemAvailable": "7126028 kB",
+	"HugePages_Rsvd": "0",
+	"Inactive(anon)": "111312 kB",
+	"CommitLimit": "20822312 kB",
+	"SUnreclaim": "24940 kB",
+	"Inactive(file)": "560000 kB",
+	"SwapCached": "0 kB",
+	"HugePages_Total": "0",
+	"Active(file)": "1223340 kB",
+	"Writeback": "0 kB",
+	"Dirty": "0 kB",
+	"PageTables": "5700 kB",
+	"Shmem": "1120 kB",
+	"MemFree": "5432004 kB",
+	"Mapped": "96256 kB",
+	"WritebackTmp": "0 kB",
+	"Slab": "184196 kB",
+	"HugePages_Free": "0",
+	"AnonPages": "633396 kB",
+	"HugePages_Surp": "0",
+	"DirectMap4k": "97980 kB",
+	"Committed_AS": "1774860 kB",
+	"VmallocUsed": "362896 kB",
+	"MemTotal": "8092252 kB",
+	"SwapTotal": "16776188 kB",
+	"NFS_Unstable": "0 kB",
+	"VmallocTotal": "34359738367 kB",
+	"Active(anon)": "523204 kB",
+	"KernelStack": "3856 kB",
+	"SwapFree": "16776188 kB",
+	"AnonHugePages": "0 kB",
+	"VmallocChunk": "34359343324 kB"
 }
 ```
 
@@ -124,6 +124,13 @@ DirectMap2M:     8187904 kB
 ```
 >>> mem.search('Swap')
 ['SwapCached:            0 kB\n', 'SwapTotal:      16776188 kB\n', 'SwapFree:       16776188 kB\n']
+```
+
+- Get memory usage as int (is case insensitive):
+
+```
+>>> mem.get('Inactive(anon)')
+111312
 ```
 
 ## License:
