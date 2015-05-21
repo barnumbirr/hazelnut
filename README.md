@@ -1,7 +1,7 @@
-<h1><img src="https://raw.githubusercontent.com/c0ding/hazelnut/master/doc/hazelnut.png" height=85 alt="hazelnut" title="hazelnut"> hazelnut</h1>
+<h1><img src="https://raw.githubusercontent.com/mrsmn/hazelnut/master/doc/hazelnut.png" height=85 alt="hazelnut" title="hazelnut"> hazelnut</h1>
 
 [![PyPi Version](http://img.shields.io/pypi/v/hazelnut.svg)](https://pypi.python.org/pypi/hazelnut/)   [![Downloads](http://img.shields.io/pypi/dm/hazelnut.svg)](https://pypi.python.org/pypi/hazelnut/)
-[![Code Health](https://landscape.io/github/c0ding/hazelnut/master/landscape.svg)](https://landscape.io/github/c0ding/hazelnut/master)
+[![Code Health](https://landscape.io/github/mrsmn/hazelnut/master/landscape.svg)](https://landscape.io/github/mrsmn/hazelnut/master)
 
 **hazelnut** is an APACHE licensed library written in Python designed to provide a simple and pythonic way to parse the _/proc/meminfo_ file on LINUX based systems.
 
