@@ -28,13 +28,12 @@ class MemInfo(object):
     def search(self, regex):
         with self.fileobj() as f:
             matcher = re.compile(regex, re.IGNORECASE)
-            match = filter(matcher.match, f)
-        return match
+            return [k for k in f if matcher.match(k)]
 
     def get(self, string):
         with self.fileobj() as f:
-            lines = [line.strip() for line in f]
-            for item in lines:
-                if item.startswith(string):
-                    match = re.findall(r'([0-9]+)\s', item)
+            for item in f:
+                line = item.strip()
+                if line.startswith(string):
+                    match = re.findall(r'([0-9]+)\s', line)
                     return int(match[0])
