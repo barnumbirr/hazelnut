@@ -24,30 +24,6 @@ class MemInfo(object):
             d = dict(x.strip().split(None, 1) for x in f)
             d = {key.strip(':'): item.strip() for key, item in d.items()}
         return d
-
-    def convert(self, size):
-        size = size.lower()
-        d = self.dict()
-        for data in d:
-            mem = d[data]
-            if size == "gb" or size == "gigabyte":
-                mem = mem.split()
-                if len(data) > 1:
-                    gb = int(mem[0]) / 1024.0**2
-                    d[data] = str(gb) + " gb"
-            
-            elif size == "mb" or size == "megabyte":
-                mem = mem.split()
-                if len(data) > 1:
-                    mb = int(mem[0]) / 1024.0
-                    d[data] = str(mb) + " mb"
-
-            elif size == "bytes":
-                mem = mem.split()
-                if len(data) > 1:
-                    bytes = int(mem[0]) * 1024.0
-                    d[data] = str(bytes) + " bytes"
-        return d
                     
     def search(self, regex):
         with self.fileobj() as f:

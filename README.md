@@ -23,40 +23,40 @@ or install from PyPi
 >>> from hazelnut import MemInfo
 >>> mem = MemInfo()
 >>> mem
-MemTotal:        8092252 kB
-MemFree:         5444872 kB
-MemAvailable:    7138880 kB
-Buffers:          484724 kB
-Cached:          1299716 kB
-SwapCached:            0 kB
-Active:          1732744 kB
-Inactive:         671312 kB
-Active(anon):     509420 kB
-Inactive(anon):   111312 kB
-Active(file):    1223324 kB
-Inactive(file):   560000 kB
-Unevictable:           0 kB
-Mlocked:               0 kB
+MemTotal:        8092460 kB
+MemFree:          499880 kB
+MemAvailable:    5454920 kB
+Buffers:          219088 kB
+Cached:          4980040 kB
+SwapCached:         7576 kB
+Active:          5647392 kB
+Inactive:        1628708 kB
+Active(anon):    1794356 kB
+Inactive(anon):   492656 kB
+Active(file):    3853036 kB
+Inactive(file):  1136052 kB
+Unevictable:         200 kB
+Mlocked:             200 kB
 SwapTotal:      16776188 kB
-SwapFree:       16776188 kB
-Dirty:                 0 kB
+SwapFree:       16639112 kB
+Dirty:               172 kB
 Writeback:             0 kB
-AnonPages:        619632 kB
-Mapped:            96216 kB
-Shmem:              1120 kB
-Slab:             184200 kB
-SReclaimable:     159252 kB
-SUnreclaim:        24948 kB
-KernelStack:        3856 kB
-PageTables:         5664 kB
+AnonPages:       2070440 kB
+Mapped:           204800 kB
+Shmem:            210036 kB
+Slab:             247884 kB
+SReclaimable:     219356 kB
+SUnreclaim:        28528 kB
+KernelStack:        4144 kB
+PageTables:        11904 kB
 NFS_Unstable:          0 kB
 Bounce:                0 kB
 WritebackTmp:          0 kB
-CommitLimit:    20822312 kB
-Committed_AS:    1755880 kB
+CommitLimit:    20822416 kB
+Committed_AS:    3317504 kB
 VmallocTotal:   34359738367 kB
-VmallocUsed:      362896 kB
-VmallocChunk:   34359343324 kB
+VmallocUsed:      362844 kB
+VmallocChunk:   34359347296 kB
 HardwareCorrupted:     0 kB
 AnonHugePages:         0 kB
 HugePages_Total:       0
@@ -64,8 +64,8 @@ HugePages_Free:        0
 HugePages_Rsvd:        0
 HugePages_Surp:        0
 Hugepagesize:       2048 kB
-DirectMap4k:       97980 kB
-DirectMap2M:     8187904 kB
+DirectMap4k:       83644 kB
+DirectMap2M:     8202240 kB
 ```
 
 - Return output as dict:
@@ -73,49 +73,49 @@ DirectMap2M:     8187904 kB
 ```
 >>> mem.dict()
 {
-	"Inactive": "671312 kB",
-	"Mlocked": "0 kB",
-	"HardwareCorrupted": "0 kB",
-	"Bounce": "0 kB",
-	"Active": "1746544 kB",
-	"Cached": "1299720 kB",
-	"Unevictable": "0 kB",
-	"SReclaimable": "159256 kB",
-	"DirectMap2M": "8187904 kB",
-	"Buffers": "484736 kB",
-	"Hugepagesize": "2048 kB",
-	"MemAvailable": "7126028 kB",
-	"HugePages_Rsvd": "0",
-	"Inactive(anon)": "111312 kB",
-	"CommitLimit": "20822312 kB",
-	"SUnreclaim": "24940 kB",
-	"Inactive(file)": "560000 kB",
-	"SwapCached": "0 kB",
-	"HugePages_Total": "0",
-	"Active(file)": "1223340 kB",
-	"Writeback": "0 kB",
-	"Dirty": "0 kB",
-	"PageTables": "5700 kB",
-	"Shmem": "1120 kB",
-	"MemFree": "5432004 kB",
-	"Mapped": "96256 kB",
 	"WritebackTmp": "0 kB",
-	"Slab": "184196 kB",
-	"HugePages_Free": "0",
-	"AnonPages": "633396 kB",
-	"HugePages_Surp": "0",
-	"DirectMap4k": "97980 kB",
-	"Committed_AS": "1774860 kB",
-	"VmallocUsed": "362896 kB",
-	"MemTotal": "8092252 kB",
 	"SwapTotal": "16776188 kB",
+	"Active(anon)": "1794356 kB",
+	"SwapFree": "16639112 kB",
+	"DirectMap4k": "83644 kB",
+	"KernelStack": "4144 kB",
+	"MemFree": "499880 kB",
+	"HugePages_Rsvd": "0",
+	"Committed_AS": "3317504 kB",
+	"SUnreclaim": "28528 kB",
 	"NFS_Unstable": "0 kB",
-	"VmallocTotal": "34359738367 kB",
-	"Active(anon)": "523204 kB",
-	"KernelStack": "3856 kB",
-	"SwapFree": "16776188 kB",
+	"VmallocChunk": "34359347296 kB",
+	"Writeback": "0 kB",
+	"Inactive(file)": "1136052 kB",
+	"MemTotal": "8092460 kB",
+	"VmallocUsed": "362844 kB",
+	"HugePages_Free": "0",
 	"AnonHugePages": "0 kB",
-	"VmallocChunk": "34359343324 kB"
+	"Shmem": "210036 kB",
+	"AnonPages": "2070440 kB",
+	"Active": "5647392 kB",
+	"Inactive(anon)": "492656 kB",
+	"HugePages_Total": "0",
+	"Hugepagesize": "2048 kB",
+	"Cached": "4980040 kB",
+	"SwapCached": "7576 kB",
+	"VmallocTotal": "34359738367 kB",
+	"Dirty": "172 kB",
+	"Mapped": "204800 kB",
+	"Unevictable": "200 kB",
+	"SReclaimable": "219356 kB",
+	"MemAvailable": "5454920 kB",
+	"Slab": "247884 kB",
+	"DirectMap2M": "8202240 kB",
+	"HugePages_Surp": "0",
+	"Bounce": "0 kB",
+	"Inactive": "1628708 kB",
+	"PageTables": "11904 kB",
+	"HardwareCorrupted": "0 kB",
+	"CommitLimit": "20822416 kB",
+	"Mlocked": "200 kB",
+	"Buffers": "219088 kB",
+	"Active(file)": "3853036 kB"
 }
 ```
 
@@ -123,21 +123,21 @@ DirectMap2M:     8187904 kB
 
 ```
 >>> mem.search('Swap')
-['SwapCached:            0 kB\n', 'SwapTotal:      16776188 kB\n', 'SwapFree:       16776188 kB\n']
+['SwapCached:         7576 kB\n', 'SwapTotal:      16776188 kB\n', 'SwapFree:       16639112 kB\n']
 ```
 
 - Get memory usage as int (is case sensitive):
 
 ```
 >>> mem.get('Inactive(anon)')
-111312
+492656
 ```
 
 ## License:
 
 ```
 	Apache v2.0 License
-	Copyright 2014-2015 Martin Simon
+	Copyright 2014-2016 Martin Simon
 
 	 Licensed under the Apache License, Version 2.0 (the "License");
 	 you may not use this file except in compliance with the License.
