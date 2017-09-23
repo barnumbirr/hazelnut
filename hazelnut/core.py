@@ -24,7 +24,7 @@ class MemInfo(object):
             d = dict(x.strip().split(None, 1) for x in f)
             d = {key.strip(':'): item.strip() for key, item in d.items()}
         return d
-                    
+
     def search(self, regex):
         with self.fileobj() as f:
             matcher = re.compile(regex, re.IGNORECASE)

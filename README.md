@@ -1,9 +1,11 @@
 <h1><img src="https://raw.githubusercontent.com/mrsmn/hazelnut/master/doc/hazelnut.png" height=85 alt="hazelnut" title="hazelnut"> hazelnut</h1>
 
-[![PyPi Version](http://img.shields.io/pypi/v/hazelnut.svg)](https://pypi.python.org/pypi/hazelnut/)   [![Downloads](http://img.shields.io/pypi/dm/hazelnut.svg)](https://pypi.python.org/pypi/hazelnut/)
-[![Code Health](https://landscape.io/github/mrsmn/hazelnut/master/landscape.svg)](https://landscape.io/github/mrsmn/hazelnut/master)
+[![PyPi Version](http://img.shields.io/pypi/v/hazelnut.svg)](https://pypi.python.org/pypi/hazelnut/)
+
 
 **hazelnut** is an APACHE licensed library written in Python designed to provide a simple and pythonic way to parse the _/proc/meminfo_ file on LINUX based systems.
+This library has been tested with Python 2.7.x and Python 3.6.x.
+
 
 ## Installation:
 
@@ -135,21 +137,22 @@ DirectMap2M:     8202240 kB
 
 ## License:
 
+## License:
+
 ```
-	Apache v2.0 License
-	Copyright 2014-2016 Martin Simon
+Copyright 2014-2017 Martin Simon
 
-	 Licensed under the Apache License, Version 2.0 (the "License");
-	 you may not use this file except in compliance with the License.
-	 You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-		 http://www.apache.org/licenses/LICENSE-2.0
+   http://www.apache.org/licenses/LICENSE-2.0
 
-	 Unless required by applicable law or agreed to in writing, software
-	 distributed under the License is distributed on an "AS IS" BASIS,
-	 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 See the License for the specific language governing permissions and
-	 limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 ```
 
