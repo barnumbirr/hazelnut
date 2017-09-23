@@ -21,7 +21,7 @@ or install from PyPi
 
 - Basic use:
 
-```
+```python
 >>> from hazelnut import MemInfo
 >>> mem = MemInfo()
 >>> mem
@@ -72,7 +72,7 @@ DirectMap2M:     8202240 kB
 
 - Return output as dict:
 
-```
+```python
 >>> mem.dict()
 {
 	"WritebackTmp": "0 kB",
@@ -123,19 +123,17 @@ DirectMap2M:     8202240 kB
 
 - Search (is case insensitive):
 
-```
+```python
 >>> mem.search('Swap')
 ['SwapCached:         7576 kB\n', 'SwapTotal:      16776188 kB\n', 'SwapFree:       16639112 kB\n']
 ```
 
 - Get memory usage as int (is case sensitive):
 
-```
+```python
 >>> mem.get('Inactive(anon)')
 492656
 ```
-
-## License:
 
 ## License:
 
