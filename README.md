@@ -1,144 +1,72 @@
-<h1><img src="https://raw.githubusercontent.com/mrsmn/hazelnut/master/doc/hazelnut.png" height=85 alt="hazelnut" title="hazelnut"> hazelnut</h1>
+<h1><img src="https://raw.githubusercontent.com/barnumbirr/hazelnut/master/doc/hazelnut.png" height=85 alt="hazelnut" title="hazelnut"> hazelnut</h1>
 
-[![PyPi Version](http://img.shields.io/pypi/v/hazelnut.svg)](https://pypi.python.org/pypi/hazelnut/)
+[![PyPi Version](https://img.shields.io/pypi/v/hazelnut.svg)](https://pypi.python.org/pypi/hazelnut/)
 
+**hazelnut** is an Apache licensed library written in Python designed to
+provide a simple and pythonic way to parse `/proc/meminfo` on Linux based
+systems.
 
-**hazelnut** is an APACHE licensed library written in Python designed to provide a simple and pythonic way to parse the _/proc/meminfo_ file on LINUX based systems.
-This library has been tested with Python 2.7.x and Python 3.6.x.
+Supports Python 3.10, 3.11, 3.12, 3.13, and 3.14.
 
+## Installation
 
-## Installation:
+```
+pip install hazelnut
+```
 
-From source use
-
-		$ python setup.py install
-
-or install from PyPi
-
-		$ pip install hazelnut
-
-## Documentation:
-
-- Basic use:
+## Usage
 
 ```python
 >>> from hazelnut import MemInfo
 >>> mem = MemInfo()
->>> mem
-MemTotal:        8092460 kB
-MemFree:          499880 kB
-MemAvailable:    5454920 kB
-Buffers:          219088 kB
-Cached:          4980040 kB
-SwapCached:         7576 kB
-Active:          5647392 kB
-Inactive:        1628708 kB
-Active(anon):    1794356 kB
-Inactive(anon):   492656 kB
-Active(file):    3853036 kB
-Inactive(file):  1136052 kB
-Unevictable:         200 kB
-Mlocked:             200 kB
-SwapTotal:      16776188 kB
-SwapFree:       16639112 kB
-Dirty:               172 kB
-Writeback:             0 kB
-AnonPages:       2070440 kB
-Mapped:           204800 kB
-Shmem:            210036 kB
-Slab:             247884 kB
-SReclaimable:     219356 kB
-SUnreclaim:        28528 kB
-KernelStack:        4144 kB
-PageTables:        11904 kB
-NFS_Unstable:          0 kB
-Bounce:                0 kB
-WritebackTmp:          0 kB
-CommitLimit:    20822416 kB
-Committed_AS:    3317504 kB
-VmallocTotal:   34359738367 kB
-VmallocUsed:      362844 kB
-VmallocChunk:   34359347296 kB
-HardwareCorrupted:     0 kB
-AnonHugePages:         0 kB
-HugePages_Total:       0
-HugePages_Free:        0
-HugePages_Rsvd:        0
-HugePages_Surp:        0
-Hugepagesize:       2048 kB
-DirectMap4k:       83644 kB
-DirectMap2M:     8202240 kB
+>>> repr(mem)
+"MemInfo(path='/proc/meminfo')"
 ```
 
-- Return output as dict:
+Print all meminfo contents:
 
 ```python
->>> mem.dict()
+>>> print(mem)
+MemTotal:        8092460 kB
+MemFree:          499880 kB
+...
+```
+
+Return output as dict:
+
+```python
+>>> mem.to_dict()
 {
-	"WritebackTmp": "0 kB",
-	"SwapTotal": "16776188 kB",
-	"Active(anon)": "1794356 kB",
-	"SwapFree": "16639112 kB",
-	"DirectMap4k": "83644 kB",
-	"KernelStack": "4144 kB",
-	"MemFree": "499880 kB",
-	"HugePages_Rsvd": "0",
-	"Committed_AS": "3317504 kB",
-	"SUnreclaim": "28528 kB",
-	"NFS_Unstable": "0 kB",
-	"VmallocChunk": "34359347296 kB",
-	"Writeback": "0 kB",
-	"Inactive(file)": "1136052 kB",
-	"MemTotal": "8092460 kB",
-	"VmallocUsed": "362844 kB",
-	"HugePages_Free": "0",
-	"AnonHugePages": "0 kB",
-	"Shmem": "210036 kB",
-	"AnonPages": "2070440 kB",
-	"Active": "5647392 kB",
-	"Inactive(anon)": "492656 kB",
-	"HugePages_Total": "0",
-	"Hugepagesize": "2048 kB",
-	"Cached": "4980040 kB",
-	"SwapCached": "7576 kB",
-	"VmallocTotal": "34359738367 kB",
-	"Dirty": "172 kB",
-	"Mapped": "204800 kB",
-	"Unevictable": "200 kB",
-	"SReclaimable": "219356 kB",
-	"MemAvailable": "5454920 kB",
-	"Slab": "247884 kB",
-	"DirectMap2M": "8202240 kB",
-	"HugePages_Surp": "0",
-	"Bounce": "0 kB",
-	"Inactive": "1628708 kB",
-	"PageTables": "11904 kB",
-	"HardwareCorrupted": "0 kB",
-	"CommitLimit": "20822416 kB",
-	"Mlocked": "200 kB",
-	"Buffers": "219088 kB",
-	"Active(file)": "3853036 kB"
+    "MemTotal": "8092460 kB",
+    "MemFree": "499880 kB",
+    "Buffers": "219088 kB",
+    "HugePages_Total": "0",
+    ...
 }
 ```
 
-- Search (is case insensitive):
+Search (case insensitive):
 
 ```python
 >>> mem.search('Swap')
-['SwapCached:         7576 kB\n', 'SwapTotal:      16776188 kB\n', 'SwapFree:       16639112 kB\n']
+['SwapCached:         7576 kB', 'SwapTotal:      16776188 kB', 'SwapFree:       16639112 kB']
 ```
 
-- Get memory usage as int (is case sensitive):
+Get memory value as int (exact key match):
 
 ```python
->>> mem.get('Inactive(anon)')
-492656
+>>> mem.get('MemTotal')
+8092460
+>>> mem.get('Active(anon)')
+1794356
+>>> mem.get('NoSuchKey') is None
+True
 ```
 
-## License:
+## License
 
 ```
-Copyright 2014-2017 Martin Simon
+Copyright 2014-2026 Martin Simon
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -151,7 +79,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
 ```
 
 ## Buy me a coffee?
