@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [1.0.0] - 2026-08-09
 
 ### Added
 
@@ -35,5 +35,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Python 3 compatibility.
 
-[unreleased]: https://github.com/barnumbirr/hazelnut/compare/v0.4.1...HEAD
+[1.0.0]: https://github.com/barnumbirr/hazelnut/compare/v0.4.1...v1.0.0
 [0.4.1]: https://github.com/barnumbirr/hazelnut/releases/tag/v0.4.1
