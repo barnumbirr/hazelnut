@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import warnings
+from importlib.metadata import version as metadata_version
+from pathlib import Path
 
 import pytest
 
@@ -53,11 +55,14 @@ DirectMap2M:     8202240 kB
 """
 
 
+SAMPLE_LINE_COUNT = len(SAMPLE_MEMINFO.splitlines())
+
+
 @pytest.fixture()
 def meminfo(tmp_path):
     path = tmp_path / "meminfo"
     path.write_text(SAMPLE_MEMINFO)
-    return MemInfo(path=str(path))
+    return MemInfo(path=path)
 
 
 # --- __version__ ---
@@ -67,7 +72,7 @@ def test_version_is_accessible():
     from hazelnut import __version__
 
     assert isinstance(__version__, str)
-    assert __version__ == "1.0.0"
+    assert __version__ == metadata_version("hazelnut")
 
 
 # --- __str__ ---
@@ -76,7 +81,7 @@ def test_version_is_accessible():
 def test_str_returns_all_lines(meminfo):
     output = str(meminfo)
     lines = output.splitlines()
-    assert len(lines) == 43
+    assert len(lines) == SAMPLE_LINE_COUNT
     assert "MemTotal:" in output
     assert "DirectMap2M:" in output
 
@@ -95,6 +100,17 @@ def test_repr_format(meminfo):
 
 def test_repr_contains_path(meminfo):
     assert meminfo.path in repr(meminfo)
+
+
+# --- path handling ---
+
+
+def test_accepts_pathlike(tmp_path):
+    path = tmp_path / "meminfo"
+    path.write_text("MemTotal: 1 kB\n")
+    mem = MemInfo(path=path)
+    assert mem.path == str(path)
+    assert mem.get("MemTotal") == 1
 
 
 # --- to_dict ---
@@ -127,7 +143,7 @@ def test_to_dict_key_with_parens(meminfo):
 
 def test_to_dict_all_keys_present(meminfo):
     d = meminfo.to_dict()
-    assert len(d) == 43
+    assert len(d) == SAMPLE_LINE_COUNT
 
 
 # --- dict (deprecated alias) ---
@@ -171,8 +187,25 @@ def test_search_no_match(meminfo):
 
 def test_search_key_with_parens(meminfo):
     results = meminfo.search(r"Active\(anon\)")
+    keys = [line.partition(":")[0] for line in results]
+    assert keys == ["Active(anon)", "Inactive(anon)"]
+    results = meminfo.search(r"^Active\(anon\)")
     assert len(results) == 1
     assert "1794356" in results[0]
+
+
+def test_search_matches_anywhere_in_key(meminfo):
+    results = meminfo.search("total")
+    keys = [line.partition(":")[0] for line in results]
+    assert keys == ["MemTotal", "SwapTotal", "VmallocTotal", "HugePages_Total"]
+
+
+def test_search_can_be_anchored(meminfo):
+    assert len(meminfo.search("^Mem")) == 3
+
+
+def test_search_does_not_match_values(meminfo):
+    assert meminfo.search("8092460") == []
 
 
 # --- get ---
@@ -233,3 +266,17 @@ def test_line_with_no_numeric_value(tmp_path):
     mem = MemInfo(path=str(path))
     assert mem.get("SomeKey") is None
     assert mem.to_dict() == {"SomeKey": "no_digits_here"}
+
+
+# --- integration (real /proc/meminfo) ---
+
+
+@pytest.mark.skipif(
+    not Path("/proc/meminfo").exists(), reason="requires Linux /proc/meminfo"
+)
+def test_real_proc_meminfo():
+    mem = MemInfo()
+    total = mem.get("MemTotal")
+    assert total is not None
+    assert total > 0
+    assert mem.to_dict()
