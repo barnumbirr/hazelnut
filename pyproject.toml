@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68.0"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,6 +8,7 @@ version = "1.0.0"
 description = "A pythonic library to parse /proc/meminfo"
 readme = "README.md"
 license = "Apache-2.0"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
 authors = [{ name = "Martin Simon", email = "me@martinsimon.me" }]
 keywords = ["memory", "RAM", "system information", "meminfo", "/proc"]
@@ -21,16 +22,23 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
+    "Typing :: Typed",
 ]
-
-[project.optional-dependencies]
-dev = ["pytest", "ruff"]
 
 [project.urls]
 Homepage = "https://github.com/barnumbirr/hazelnut"
 Repository = "https://github.com/barnumbirr/hazelnut"
 Issues = "https://github.com/barnumbirr/hazelnut/issues"
 Changelog = "https://github.com/barnumbirr/hazelnut/blob/master/CHANGELOG.md"
+
+[dependency-groups]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools]
+packages = ["hazelnut"]
+
+[tool.setuptools.package-data]
+hazelnut = ["py.typed"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
