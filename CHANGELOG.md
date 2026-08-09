@@ -9,28 +9,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- Type hints throughout the codebase.
-- `to_dict()` method replacing the old `dict()` method.
-- `MemInfo.dict()` kept as a deprecated alias with `DeprecationWarning`.
-- Test suite with pytest (~25 tests).
-- CI/CD with GitHub Actions (lint + test on Python 3.10–3.14, PyPI publishing).
-- `pyproject.toml` based packaging (replaces `setup.py`/`distutils`).
+- Type hints, shipped with a `py.typed` marker.
+- `to_dict()`, replacing `dict()` (kept as a deprecated alias).
+- `MemInfo(path=...)` accepts `os.PathLike` paths.
 
 ### Changed
 
-- **BREAKING**: `get()` now uses exact key matching instead of prefix matching.
-- **BREAKING**: `get()` returns `None` instead of crashing when no numeric value is found.
+- **BREAKING**: `search()` matches the pattern against keys with
+  `re.search` semantics — `search("total")` now finds `MemTotal`.
+- **BREAKING**: `get()` uses exact key matching instead of prefix
+  matching, and returns `None` instead of crashing on values without digits.
 - **BREAKING**: `search()` returns stripped lines (no trailing `\n`).
-- **BREAKING**: `__repr__` returns `MemInfo(path='...')` instead of the full file contents.
-- **BREAKING**: `fileobj()` renamed to `_open()` (private API).
-- `to_dict()` uses `partition(":")` for more robust parsing.
-- Minimum Python version is now 3.10.
+- **BREAKING**: `repr()` returns `MemInfo(path='...')` instead of the file contents.
+- Minimum supported Python is 3.10 (Python 2 support dropped).
 
 ### Removed
 
-- `setup.py` and `MANIFEST` (replaced by `pyproject.toml`).
-- Manual metadata dunder variables in `__init__.py` (version now from `importlib.metadata`).
-- Python 2.x support.
+- **BREAKING**: `fileobj()` (now private).
+- `__title__`, `__author__`, `__repo__` and `__license__`; `__version__` remains.
+- `setup.py`/`MANIFEST` packaging (replaced by `pyproject.toml`).
 
 ## [0.4.1] - 2017-08-15
 

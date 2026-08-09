@@ -1,12 +1,12 @@
 <h1><img src="https://raw.githubusercontent.com/barnumbirr/hazelnut/master/doc/hazelnut.png" height=85 alt="hazelnut" title="hazelnut"> hazelnut</h1>
 
-[![PyPi Version](https://img.shields.io/pypi/v/hazelnut.svg)](https://pypi.python.org/pypi/hazelnut/)
+[![PyPI Version](https://img.shields.io/pypi/v/hazelnut.svg)](https://pypi.org/project/hazelnut/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/hazelnut.svg)](https://pypi.org/project/hazelnut/)
+[![CI](https://github.com/barnumbirr/hazelnut/actions/workflows/ci.yml/badge.svg)](https://github.com/barnumbirr/hazelnut/actions/workflows/ci.yml)
 
 **hazelnut** is an Apache licensed library written in Python designed to
 provide a simple and pythonic way to parse `/proc/meminfo` on Linux based
 systems.
-
-Supports Python 3.10, 3.11, 3.12, 3.13, and 3.14.
 
 ## Installation
 
@@ -45,11 +45,11 @@ Return output as dict:
 }
 ```
 
-Search (case insensitive):
+Search keys (case-insensitive, matches anywhere in the key — anchor with `^` if needed):
 
 ```python
->>> mem.search('Swap')
-['SwapCached:         7576 kB', 'SwapTotal:      16776188 kB', 'SwapFree:       16639112 kB']
+>>> mem.search('total')
+['MemTotal:        8092460 kB', 'SwapTotal:      16776188 kB', 'VmallocTotal:   34359738367 kB', 'HugePages_Total:       0']
 ```
 
 Get memory value as int (exact key match):
@@ -63,10 +63,14 @@ Get memory value as int (exact key match):
 True
 ```
 
+Values are returned as bare integers with the unit dropped: most fields
+are expressed in kB (kibibytes), a few (e.g. `HugePages_Total`) are
+plain counts.
+
 ## License
 
 ```
-Copyright 2014-2026 Martin Simon
+Copyright 2015-2026 Martin Simon
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -86,7 +90,8 @@ limitations under the License.
 If you feel like buying me a coffee (or a beer?), donations are welcome:
 
 ```
-WDC : WbcWJzVD8yXt3yLnnkCZtwQo4YgSUdELkj
-HBN : F2Zs4igv8r4oJJzh4sh4bGmeqoUxLQHPki
+BTC : bc1qq04jnuqqavpccfptmddqjkg7cuspy3new4sxq9
 DOGE: DRBkryyau5CMxpBzVmrBAjK6dVdMZSBsuS
+ETH : 0x2238A11856428b72E80D70Be8666729497059d95
+LTC : MQwXsBrArLRHQzwQZAjJPNrxGS1uNDDKX6
 ```
