@@ -37,3 +37,28 @@ jobs:
       - run: pip install build
       - run: python -m build
       - uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
+
+  github-release:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Extract release notes from CHANGELOG
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          awk -v ver="$version" '
+            index($0, "## [" ver "]") == 1 { flag = 1; next }
+            /^## \[/ { flag = 0 }
+            flag' CHANGELOG.md > notes.md
+          if ! grep -q '[^[:space:]]' notes.md; then
+            echo "No CHANGELOG section found for version ${version}" >&2
+            exit 1
+          fi
+      - run: gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file notes.md --verify-tag
+        env:
+          GH_TOKEN: ${{ github.token }}
